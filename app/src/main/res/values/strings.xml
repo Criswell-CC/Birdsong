@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Birdsong</string>
+    <string name="tab_text_1">Song List</string>
+    <string name="tab_text_2">Search</string>
+</resources>
