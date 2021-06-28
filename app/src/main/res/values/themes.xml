@@ -14,7 +14,8 @@
 
         <item name="background">@color/babyblue</item>
         <item name="android:windowBackground">@color/babyblue</item>
-
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
         <!-- Customize your theme here. -->
         <item name="android:windowIsTranslucent">true</item>
     </style>
@@ -25,16 +26,8 @@
     </style>
 
     <style name="SplashScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
         <item name="android:windowIsTranslucent">true</item>
     </style>
-
-    <style name="Theme.MusicStreamer2.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="Theme.MusicStreamer2.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="Theme.MusicStreamer2.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

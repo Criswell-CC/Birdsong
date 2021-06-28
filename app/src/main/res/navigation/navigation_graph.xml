@@ -9,16 +9,16 @@
         android:id="@+id/playlistFragment"
         android:name="com.birdsong.birdsong.ui.PlaylistFragment"
         android:label="fragment_playlist"
-        tools:layout="@layout/fragment_playlist" >
+        tools:layout="@layout/playlist_fragment" >
         <action
             android:id="@+id/action_playlistFragment_to_playerFragment"
             app:destination="@id/playerFragment" />
     </fragment>
     <fragment
         android:id="@+id/playerFragment"
-        android:name="com.birdsong.birdsong.ui.playerFragment"
+        android:name="com.birdsong.birdsong.ui.PlayerFragment"
         android:label="fragment_player"
-        tools:layout="@layout/fragment_player" >
+        tools:layout="@layout/player_fragment" >
         <action
             android:id="@+id/action_playerFragment_to_playlistFragment"
             app:destination="@id/playlistFragment" />

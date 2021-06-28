@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.birdsong.birdsong.Player;
+import com.birdsong.birdsong.models.Playlist;
 
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class MainViewModel extends ViewModel {
@@ -18,13 +19,14 @@ public class MainViewModel extends ViewModel {
     public final MutableLiveData<String> songTitle = new MutableLiveData<String>();
     public final MutableLiveData<Boolean> songSet = new MutableLiveData<Boolean>(false);
     public final MutableLiveData<Boolean> isPlaying = new MutableLiveData<Boolean>(false);
+    public final MutableLiveData<Playlist> playlist = new MutableLiveData<Playlist>();
 
     public LiveData<String> getSongTitle() {
         return songTitle;
     }
 
     public void setSongTitle(String title) {
-        songTitle.setValue(title);
+        this.songTitle.setValue(title);
     }
 
     public MediaPlayer getMediaPlayer() {
@@ -38,7 +40,7 @@ public class MainViewModel extends ViewModel {
     }
 
     public void setSongSet(Boolean bool) {
-        songSet.setValue(bool);
+        this.songSet.setValue(bool);
     }
 
     public LiveData<Boolean> getSongSet() {
@@ -46,17 +48,24 @@ public class MainViewModel extends ViewModel {
     }
 
     public void setIsPlaying(boolean bool) {
-        isPlaying.setValue(new Boolean(bool));
+        this.isPlaying.setValue(new Boolean(bool));
     }
 
     public LiveData<Boolean> getIsPlaying() {
         return isPlaying;
     }
 
+    public void setPlaylist(Playlist playlist) {
+        this.playlist.setValue(playlist);
+    }
+
+    public LiveData<Playlist> getPlaylist() {
+        return playlist;
+    }
+
     @Override
     public void onCleared() {
         super.onCleared();
     }
-
 
 }

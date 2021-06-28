@@ -1,3 +1,4 @@
+
 package com.birdsong.birdsong.ui;
 
 import android.media.MediaPlayer;
@@ -8,6 +9,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.birdsong.birdsong.DAO;
 import com.birdsong.birdsong.R;
 import com.birdsong.birdsong.ViewModel.MainViewModel;
 
@@ -26,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
         viewModel = new ViewModelProvider(this).get(MainViewModel.class);
         viewModel.setMediaPlayer(this.mediaPlayer);
+
+        viewModel.setPlaylist(new DAO().fetchPlaylist());
 
     }
 

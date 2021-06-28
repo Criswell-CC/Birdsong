@@ -2,45 +2,21 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Theme.Birdsong"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    style="@style/Theme.Birdsong">
-
-    <ImageButton
-        android:id="@+id/playlistButton"
-        android:layout_width="31dp"
-        android:layout_height="27dp"
-        android:background="@drawable/playlist_foreground"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.107"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.585" />
-
-    <ImageButton
-        android:id="@+id/addButton"
-        android:layout_width="31dp"
-        android:layout_height="33dp"
-        android:background="@drawable/add_button_foreground"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.889"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.582" />
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/albumArt"
-        android:layout_width="352dp"
-        android:layout_height="373dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="288dp"
+        android:layout_height="250dp"
+        android:src="@mipmap/sample_album_foreground"
+        app:layout_constraintBottom_toTopOf="@+id/artistName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        app:layout_constraintVertical_bias="0.1" />
 
     <TextView
         android:id="@+id/artistName"
@@ -52,11 +28,11 @@
         android:textColor="@color/white2"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/songTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.459" />
+        app:layout_constraintTop_toBottomOf="@id/albumArt"
+        app:layout_constraintVertical_bias="0.527" />
 
     <TextView
         android:id="@+id/songTitle"
@@ -67,26 +43,26 @@
         android:text="Current song"
         android:textColor="@color/white2"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.527" />
+        app:layout_constraintTop_toBottomOf="@+id/artistName"
+        app:layout_constraintVertical_bias="0.464" />
 
     <SeekBar
         android:id="@+id/seekBar"
         android:layout_width="329dp"
         android:layout_height="44dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.644"/>
+        app:layout_constraintTop_toBottomOf="@+id/songTitle"
+        app:layout_constraintVertical_bias="1.0" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
-        android:layout_width="398dp"
-        android:layout_height="195dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
         android:layout_marginTop="520dp"
         android:background="@color/babyblue"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -104,6 +80,7 @@
             android:layout_marginStart="75dp"
             android:layout_marginLeft="75dp"
             android:background="@color/mainBackground"
+            android:soundEffectsEnabled="false"
             app:srcCompat="@android:drawable/ic_media_previous" />
 
         <ImageButton
@@ -114,6 +91,7 @@
             android:layout_marginEnd="77dp"
             android:layout_marginRight="77dp"
             android:background="@color/mainBackground"
+            android:soundEffectsEnabled="false"
             app:srcCompat="@android:drawable/ic_media_next" />
 
         <androidx.cardview.widget.CardView
@@ -121,6 +99,7 @@
             android:layout_height="79dp"
             android:layout_gravity="center"
             app:cardCornerRadius="100dp">
+
             <ImageButton
                 android:id="@+id/playButton"
                 android:layout_width="100dp"
@@ -128,8 +107,28 @@
                 android:layout_gravity="center"
                 android:adjustViewBounds="false"
                 android:background="@color/white"
-                android:soundEffectsEnabled="false"/>
+                android:soundEffectsEnabled="false" />
         </androidx.cardview.widget.CardView>
+
+        <ImageButton
+            android:id="@+id/addButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="right|center_vertical"
+            android:layout_marginEnd="36dp"
+            android:layout_marginRight="36dp"
+            android:background="@drawable/add_button_foreground"
+            android:soundEffectsEnabled="false" />
+
+        <ImageButton
+            android:id="@+id/playlistButton"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="left|center_vertical"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/playlist_foreground"
+            android:soundEffectsEnabled="false" />
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 

@@ -9,6 +9,7 @@ import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +23,7 @@ import com.birdsong.birdsong.R;
 
 import java.io.IOException;
 
-public class playerFragment extends Fragment {
+public class PlayerFragment extends Fragment {
 
     private MainViewModel viewModel;
 
@@ -31,12 +32,12 @@ public class playerFragment extends Fragment {
 
     TextView songTextView;
 
-    public playerFragment() {
+    public PlayerFragment() {
 
     }
 
-    public static playerFragment newInstance(String param1, String param2) {
-        playerFragment fragment = new playerFragment();
+    public static PlayerFragment newInstance(String param1, String param2) {
+        PlayerFragment fragment = new PlayerFragment();
         return fragment;
     }
 
@@ -50,7 +51,7 @@ public class playerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_player, container, false);
+        View view = inflater.inflate(R.layout.player_fragment, container, false);
 
         // set play button image
         ImageButton playButton = (ImageButton)view.findViewById(R.id.playButton);
@@ -62,16 +63,16 @@ public class playerFragment extends Fragment {
         // set click handlers
         addButton.setOnClickListener(v -> {
             //add to playlist data struct
-            Toast.makeText(view.getContext(), "Song added to playlist", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity().getBaseContext(), "Song added to playlist", Toast.LENGTH_SHORT).show();
         });
 
         playlistButton.setOnClickListener(v -> {
 
+            Navigation.findNavController(v).navigate(R.id.playlistFragment);
+
             //navigate to playlist fragment
 
         });
-
-
 
         viewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);
 
