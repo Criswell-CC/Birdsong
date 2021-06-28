@@ -8,9 +8,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+import com.birdsong.birdsong.models.PlaylistItem;
+
 public class Playlist implements List {
 
-
+    private List<PlaylistItem> playlist;
 
     @Override
     public int size() {

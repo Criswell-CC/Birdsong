@@ -23,9 +23,5 @@
             android:id="@+id/action_playerFragment_to_playlistFragment"
             app:destination="@id/playlistFragment" />
     </fragment>
-    <activity
-        android:id="@+id/splashActivity"
-        android:name="com.birdsong.birdsong.ui.SplashActivity"
-        android:label="SplashActivity" />
 
 </navigation>

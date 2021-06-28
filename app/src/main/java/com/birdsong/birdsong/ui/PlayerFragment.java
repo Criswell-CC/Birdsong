@@ -70,8 +70,6 @@ public class PlayerFragment extends Fragment {
 
             Navigation.findNavController(v).navigate(R.id.playlistFragment);
 
-            //navigate to playlist fragment
-
         });
 
         viewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);

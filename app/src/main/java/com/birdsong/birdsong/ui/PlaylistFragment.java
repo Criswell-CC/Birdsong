@@ -32,7 +32,7 @@ public class PlaylistFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.player_fragment, container, false);
+        View view = inflater.inflate(R.layout.playlist_fragment, container, false);
 
 
 
