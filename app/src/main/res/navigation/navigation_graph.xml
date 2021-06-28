@@ -3,16 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/mainActivity">
+    app:startDestination="@id/playerFragment">
 
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.birdsong.birdsong.MainActivity"
-        android:label="MainActivity" />
+    <fragment
+        android:id="@+id/playlistFragment"
+        android:name="com.birdsong.birdsong.ui.PlaylistFragment"
+        android:label="fragment_playlist"
+        tools:layout="@layout/fragment_playlist" >
+        <action
+            android:id="@+id/action_playlistFragment_to_playerFragment"
+            app:destination="@id/playerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playerFragment"
+        android:name="com.birdsong.birdsong.ui.playerFragment"
+        android:label="fragment_player"
+        tools:layout="@layout/fragment_player" >
+        <action
+            android:id="@+id/action_playerFragment_to_playlistFragment"
+            app:destination="@id/playlistFragment" />
+    </fragment>
     <activity
         android:id="@+id/splashActivity"
-        android:name="com.birdsong.birdsong.ui.main.SplashActivity"
-        android:label="splash_activity"
-        tools:layout="@layout/splash_activity" />
+        android:name="com.birdsong.birdsong.ui.SplashActivity"
+        android:label="SplashActivity" />
 
 </navigation>

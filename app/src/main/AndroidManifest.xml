@@ -11,11 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MusicStreamer2">
-        <activity android:name="com.birdsong.birdsong.ui.main.PlaylistActivity"
+        <activity android:name="com.birdsong.birdsong.ui.PlaylistActivity"
             android:label="@string/app_name"
             android:theme="@style/SplashScreenTheme"></activity>
         <activity
-            android:name="com.birdsong.birdsong.ui.main.SplashActivity"
+            android:name="com.birdsong.birdsong.ui.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/SplashScreenTheme">
             <intent-filter>
@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.birdsong.birdsong.MainActivity"
+            android:name="com.birdsong.birdsong.ui.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.Birdsong">
             <intent-filter>

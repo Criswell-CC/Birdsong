@@ -1,4 +1,4 @@
-package com.birdsong.birdsong.ui.main;
+package com.birdsong.birdsong.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,6 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.birdsong.birdsong.MainActivity;
 import com.birdsong.birdsong.R;
 
 public class SplashActivity extends AppCompatActivity {

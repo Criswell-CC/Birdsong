@@ -1,4 +1,4 @@
-package com.birdsong.birdsong.ui.main;
+package com.birdsong.birdsong.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
