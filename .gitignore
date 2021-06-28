@@ -9,6 +9,8 @@
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
+/app/src/androidTest
+/app/src/test
 .DS_Store
 /build
 /captures
