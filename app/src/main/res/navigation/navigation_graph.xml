@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/mainActivity">
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.birdsong.birdsong.MainActivity"
+        android:label="MainActivity" />
+    <activity
+        android:id="@+id/splashActivity"
+        android:name="com.birdsong.birdsong.ui.main.SplashActivity"
+        android:label="splash_activity"
+        tools:layout="@layout/splash_activity" />
+
+</navigation>

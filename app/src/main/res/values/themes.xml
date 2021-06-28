@@ -28,4 +28,13 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
+    <style name="Theme.MusicStreamer2.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.MusicStreamer2.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MusicStreamer2.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

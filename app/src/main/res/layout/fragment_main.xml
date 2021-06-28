@@ -5,7 +5,7 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.birdsong.ui.main.PlaceholderFragment">
+    tools:context="com.birdsong.birdsong.ui.main.PlaceholderFragment">
 
     <TextView
         android:id="@+id/section_label"

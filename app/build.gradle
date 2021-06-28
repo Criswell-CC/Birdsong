@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.example.birdsong"
+        applicationId "com.birdsong.birdsong"
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
@@ -30,6 +30,8 @@ android {
 
 dependencies {
 
+    implementation 'androidx.navigation:navigation-fragment:2.2.2'
+    implementation 'androidx.navigation:navigation-ui:2.2.2'
     def appsearch_version = "1.0.0-alpha01"
 
     implementation 'androidx.appcompat:appcompat:1.2.0'

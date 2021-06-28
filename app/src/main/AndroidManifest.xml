@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.birdsong">
+    package="com.birdsong.birdsong">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,29 +11,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MusicStreamer2">
-
+        <activity android:name="com.birdsong.birdsong.ui.main.PlaylistActivity"
+            android:label="@string/app_name"
+            android:theme="@style/SplashScreenTheme"></activity>
         <activity
-            android:name="com.example.birdsong.ui.main.SplashActivity"
-            android:theme="@style/SplashScreenTheme"
-            android:label="@string/app_name">
+            android:name="com.birdsong.birdsong.ui.main.SplashActivity"
+            android:label="@string/app_name"
+            android:theme="@style/SplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="com.example.birdsong.MainActivity"
+            android:name="com.birdsong.birdsong.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.Birdsong">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
                 <data android:scheme="birdsong" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
