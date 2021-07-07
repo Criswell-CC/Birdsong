@@ -3,7 +3,7 @@
     <style name="Theme.Birdsong" parent="Theme.AppCompat.Light.NoActionBar">
 
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/babyblue</item>
+        <item name="colorPrimary">@color/mainBackground</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -12,8 +12,8 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
 
-        <item name="background">@color/babyblue</item>
-        <item name="android:windowBackground">@color/babyblue</item>
+        <item name="background">@color/mainBackground</item>
+        <item name="android:windowBackground">@color/mainBackground</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <!-- Customize your theme here. -->

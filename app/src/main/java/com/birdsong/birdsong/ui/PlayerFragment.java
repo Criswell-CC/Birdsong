@@ -1,12 +1,20 @@
 package com.birdsong.birdsong.ui;
 
+import android.app.Notification;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
@@ -14,14 +22,19 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.birdsong.birdsong.ViewModel.MainViewModel;
 import com.birdsong.birdsong.R;
+import com.birdsong.birdsong.services.MessagingService;
+//import com.birdsong.birdsong.services.MessagingService;
 
 import java.io.IOException;
+import java.net.URL;
 
 public class PlayerFragment extends Fragment {
 
@@ -31,6 +44,8 @@ public class PlayerFragment extends Fragment {
     private boolean songSet;
 
     TextView songTextView;
+    TextView artistTextView;
+
 
     public PlayerFragment() {
 
@@ -52,6 +67,21 @@ public class PlayerFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.player_fragment, container, false);
+        initializeUI(view);
+        return view;
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private void initializeUI(View view) {
+
+        //click listener for album art if needed
+//        ImageView albumArt = (ImageView)view.findViewById(R.id.albumArt);
+//        albumArt.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//            }
+//        });
 
         // set play button image
         ImageButton playButton = (ImageButton)view.findViewById(R.id.playButton);
@@ -62,6 +92,9 @@ public class PlayerFragment extends Fragment {
 
         // set click handlers
         addButton.setOnClickListener(v -> {
+
+            MessagingService.sendMessageTest(getActivity());
+
             //add to playlist data struct
             Toast.makeText(getActivity().getBaseContext(), "Song added to playlist", Toast.LENGTH_SHORT).show();
         });
@@ -94,14 +127,21 @@ public class PlayerFragment extends Fragment {
             this.songSet = songSet.booleanValue();
         });
 
+        initializePlayButton(playButton, mediaPlayer);
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private void initializePlayButton(ImageButton playButton, MediaPlayer mediaPlayer) {
         playButton.setOnClickListener(v -> {
-//
+
             if (mediaPlayer == null) {
                 return;
             }
 
             if (isPlaying) {
                 mediaPlayer.stop();
+                //needed?
                 //mediaPlayer.prepareAsync();
                 playButton.setImageResource(R.drawable.play_button_play_foreground);
                 viewModel.setIsPlaying(false);
@@ -112,7 +152,8 @@ public class PlayerFragment extends Fragment {
 
                     try {
 
-                        mediaPlayer.setDataSource("https://ks.imslp.net/files/imglnks/usimg/7/74/IMSLP294242-PMLP04230-dso20120512-004-beethoven-piano-concerto-no1-mvtIII-rondo-allegro-scherzando.mp3");
+                        //hardcoded test url
+                        mediaPlayer.setDataSource(getResources().getString(R.string.song_src));
                         mediaPlayer.prepareAsync();
 
                         mediaPlayer.setOnPreparedListener(player -> {
@@ -123,7 +164,7 @@ public class PlayerFragment extends Fragment {
                         });
 
                     } catch (IOException e) {
-                        Toast.makeText(view.getContext(), "Error fetching mp3", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(v.getContext(), "Error fetching mp3", Toast.LENGTH_SHORT).show();
                         e.printStackTrace();
                     }
                 }
@@ -135,7 +176,5 @@ public class PlayerFragment extends Fragment {
                 }
             }
         });
-
-        return view;
     }
 }

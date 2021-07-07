@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/babyblue"
-    tools:context="com.birdsong.birdsong.ui.main.SplashActivity">
+    android:background="@color/mainBackground"
+    tools:context="com.birdsong.birdsong.ui.SplashActivity">
 
     <ImageView
         android:id="@+id/logo"
